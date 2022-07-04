@@ -42,7 +42,7 @@ public class DefaultMessageAdapter implements IMessageAdapter{
             destination = session.createQueue("queue:///Q1");
             producer = session.createProducer(destination);
 
-
+            //This is just showing how to send a message.
             long uniqueNumber = System.currentTimeMillis() % 1000;
             TextMessage message = session.createTextMessage("SimpleRequestor: Your lucky number yesterday was " + uniqueNumber);
             connection.start();
@@ -51,6 +51,6 @@ public class DefaultMessageAdapter implements IMessageAdapter{
         } catch (JMSException e) {
             log.warn(String.valueOf(e.getLinkedException()));
         }
-        return null;
+        return "THIS DID NOT WORK";
     }
 }
